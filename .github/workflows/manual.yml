@@ -29,7 +29,6 @@ jobs:
           export CRED_2_GUID=${{ secrets.CRED_2_GUID }}
           export CRED_2_PASS=${{ secrets.CRED_2_PASS }}
           pip install discord
-          pip install json
           pip install requests
           python do.py
           git add -A
