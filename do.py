@@ -4,6 +4,7 @@ import src
 import json
 from discord import Embed, Webhook, RequestsWebhookAdapter
 import os.path
+from os import environ
 
 # CONFIG:
 sessions = [
@@ -15,7 +16,7 @@ webhook_url = "https://discord.com/api/webhooks/910583855545733120/GRPETupsGBYJy
 
 
 
-credential_pool = list()
+credential_pool = [(os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")), (os.environ.get("CRED_2_GUID"), os.environ.get("CRED_2_PASS"))]
 
 client_pool = list()
 for guid, password in credential_pool:
