@@ -1,0 +1,3 @@
+Failed login for GUID: foo; Pass stored in CRED_2_*
+Status Code: 403
+Raw Response: b'{"error":"User name or password is incorrect."}'
