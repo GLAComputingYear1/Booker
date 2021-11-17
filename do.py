@@ -19,6 +19,7 @@ webhook_url = "https://discord.com/api/webhooks/910583855545733120/GRPETupsGBYJy
 credential_pool = [(os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")), (os.environ.get("CRED_2_GUID"), os.environ.get("CRED_2_PASS"))]
 
 client_pool = list()
+count = 1
 for guid, password in credential_pool:
     try:
         new_client = src.RoomClient()
@@ -26,7 +27,9 @@ for guid, password in credential_pool:
         client_pool.append(new_client)
     except src.InvalidLoginException as e:
         print(f"{e.guid} login failed!")
+        e.variable_name = f"CRED_{count}_*"
         e._push_log()
+    count += 1
 
 if len(client_pool) == 0:
     print("No valid clients available!")
