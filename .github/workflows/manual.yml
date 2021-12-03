@@ -28,6 +28,8 @@ jobs:
           export CRED_1_PASS=${{ secrets.CRED_1_PASS }}
           export CRED_2_GUID=${{ secrets.CRED_2_GUID }}
           export CRED_2_PASS=${{ secrets.CRED_2_PASS }}
+          export CRED_3_GUID=${{ secrets.CRED_2_GUID }}
+          export CRED_3_PASS=${{ secrets.CRED_2_PASS }}
           pip install discord
           pip install requests
           python do.py
