@@ -16,7 +16,11 @@ webhook_url = "https://discord.com/api/webhooks/910583855545733120/GRPETupsGBYJy
 
 
 
-credential_pool = [(os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")), (os.environ.get("CRED_2_GUID"), os.environ.get("CRED_2_PASS"))]
+credential_pool = [
+    (os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")),
+    (os.environ.get("CRED_2_GUID"), os.environ.get("CRED_2_PASS")),
+    (os.environ.get("CRED_3_GUID"), os.environ.get("CRED_3_PASS"))
+]
 
 client_pool = list()
 count = 1
