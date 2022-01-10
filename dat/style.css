@@ -1,0 +1,39 @@
+body {
+    background-color: white;
+}
+
+main {
+
+    margin: auto;
+    max-width: 70%;
+
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+table{
+    margin: auto;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 2.5px;
+
+}
+
+tr {
+    margin: 0;
+
+}
+
+th {
+}
+
+td {
+}
