@@ -1,3 +1,0 @@
-Failed login for GUID: ; Pass stored in FOO_VAR
-Status Code: 403
-Raw Response: b'{"error":"User name or password is incorrect."}'

@@ -1,8 +1,6 @@
 # This is a basic workflow to help you get started with Actions
-name: Book Rooms Auto
-on:
-  schedule:
-    - cron: '0 0 * * *'
+name: Update Webpage
+on: workflow_dispatch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,7 +14,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: pages
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
@@ -24,16 +22,9 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          git config --global user.name "AutoBooker"
-          export CRED_1_GUID=${{ secrets.CRED_1_GUID }}
-          export CRED_1_PASS=${{ secrets.CRED_1_PASS }}
-          export CRED_2_GUID=${{ secrets.CRED_2_GUID }}
-          export CRED_2_PASS=${{ secrets.CRED_2_PASS }}
-          export CRED_3_GUID=${{ secrets.CRED_2_GUID }}
-          export CRED_3_PASS=${{ secrets.CRED_2_PASS }}
-          pip install discord
-          pip install requests
-          python do.py
+          git config --global user.name "AutoBooker-Pages"
+          pip install jinja2
+          python main.py
           git add -A
-          git diff-index --quiet HEAD || git commit -m 'Saved room data'
+          git diff-index --quiet HEAD || git commit -m 'Saved webpage'
           git push
