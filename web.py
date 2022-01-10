@@ -4,7 +4,7 @@ from os import path
 class web:
     def __init__(self):
         self.env = env = Environment(loader=FileSystemLoader("templates"), autoescape=select_autoescape())
-        self.template = template = env.get_template("index_template.html")
+        self.template = env.get_template("index_template.html")
 
         self.make()
     
