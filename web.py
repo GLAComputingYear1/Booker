@@ -9,23 +9,37 @@ class web:
 
         self.make()
     
+    def format_day(self, date):
+        
+        datetime_date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+        
+        worded_day = datetime_date.strftime('%A')
+        numbered_day = datetime_date.strftime('%Y-%m-%d')
+        
+        full_day = f'{worded_day} {numbered_day}'
+        
+        return full_day
+    
     def make(self):
         
         bookings = [
-            load(open(f"dat/rooms_{i}.json"))['data'] for i in range(7)
-        ]
+                        load(open(f"dat/rooms_{i}.json"))['data'] for i in range(7) 
+                    ]
+        
         bookings.sort(key=lambda x: x[0]['session_start'])
         
-        room_bookings = dict()
+        room_bookings = list()
         
-        for day in bookings:
+        for i, day in enumerate(bookings):
+            day_string = self.format_day(day[0]['session_start'])
+            room_bookings.append([day_string])
             
-            for booking in day:
-                
-                print(booking)
+            for j, booking in enumerate(day):
+                room_bookings[i].append(booking['room_name'])
         
-        # with open("www/index.html", "w") as file:
-
-        #     file.write(self.template.render(test="testing", onetwothree="123"))
+        print(room_bookings)
+        
+        with open("www/index.html", "w") as file:
+            file.write(self.template.render(room_bookings=room_bookings))
             
 web = web()

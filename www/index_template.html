@@ -16,12 +16,13 @@
                     <th>Afternoon Room</th>
                     <th>Evening Room</th>
                 </tr>
+                    {% for booking in room_bookings %}
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        {% for item in booking %}
+                        <td>{{item}}</td>
+                        {% endfor %}
                     </tr>
+                    {% endfor %}
             </table>
         </main>
     </body>
