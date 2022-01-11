@@ -1,5 +1,6 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from os import path 
+from json import load
+import datetime
 
 class web:
     def __init__(self):
@@ -9,6 +10,22 @@ class web:
         self.make()
     
     def make(self):
-        with open("www/index.html", "w") as file:
+        
+        bookings = [
+            load(open(f"dat/rooms_{i}.json"))['data'] for i in range(7)
+        ]
+        bookings.sort(key=lambda x: x[0]['session_start'])
+        
+        room_bookings = dict()
+        
+        for day in bookings:
+            
+            for booking in day:
+                
+                print(booking)
+        
+        # with open("www/index.html", "w") as file:
 
-            file.write(self.template.render(test="testing", onetwothree="123"))
+        #     file.write(self.template.render(test="testing", onetwothree="123"))
+            
+web = web()
