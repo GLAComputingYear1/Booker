@@ -35,3 +35,5 @@ class web:
         
         with open("www/index.html", "w") as file:
             file.write(self.template.render(room_bookings=room_bookings))
+
+web = web()
