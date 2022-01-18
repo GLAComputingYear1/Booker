@@ -36,7 +36,7 @@ jobs:
           pip install requests
           pip install jinja2
           python do.py
-          python Web.py
+          python web.py
           git add -A
           git diff-index --quiet HEAD || git commit -m 'Saved room data'
           git push

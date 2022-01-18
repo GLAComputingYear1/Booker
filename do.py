@@ -4,7 +4,8 @@ import src
 import json
 from discord import Embed, Webhook, RequestsWebhookAdapter
 import os.path
-from os import environ
+import os
+
 
 # CONFIG:
 sessions = [

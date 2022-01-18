@@ -35,14 +35,12 @@ jobs:
           pip install requests
           pip install jinja2
           python do.py
-          python Web.py
+
           git add -A
           git diff-index --quiet HEAD || git commit -m 'Saved room data'
           git push
 
-          git switch pages
-          git checkout master www/index.html
-
-          git add www/index.html
-          git commit -m 'Updating index.html'
-          git push
+          rm -rfv !("dat")
+          ls -la
+          python web.py
+          ls -la
