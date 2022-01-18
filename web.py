@@ -4,7 +4,7 @@ import datetime
 
 class web:
     def __init__(self):
-        self.env = env = Environment(loader=FileSystemLoader("www"), autoescape=select_autoescape())
+        self.env = env = Environment(loader=FileSystemLoader("old/www"), autoescape=select_autoescape())
         self.template = env.get_template("index_template.html")
         self.make()
     
@@ -19,7 +19,7 @@ class web:
     def make(self):
         
         bookings = [
-                        load(open(f"dat/rooms_{i}.json"))['data'] for i in range(7) 
+                        load(open(f"old/dat/rooms_{i}.json"))['data'] for i in range(7)
                     ]
         
         bookings.sort(key=lambda x: x[0]['session_start'])
