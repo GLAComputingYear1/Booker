@@ -50,3 +50,10 @@ jobs:
           ls -la
           python old/web.py
           ls -la ./www
+
+          git clone -b pages https://github.com/GLAComputingYear1/Booker.git pages
+          mv ./www/* ./pages/
+          cd pages
+          git add -A
+          git diff-index --quiet HEAD || git commit -m 'Pushed new pages'
+          git push
