@@ -116,8 +116,8 @@ for index, room_id in enumerate(booked):
         data.append({
             "room_id": None,
             "room_name": None,
-            "session_start": datetime.datetime.combine((datetime.date.today()+datetime.timedelta(days=7)),(sessions[index][0])),
-            "session_end":  datetime.datetime.combine((datetime.date.today()+datetime.timedelta(days=7)), (sessions[index][0]))+sessions[index][1]
+            "session_start": datetime.datetime.combine((datetime.date.today()+datetime.timedelta(days=7)),(sessions[index][0])).strftime("%H:%M"),
+            "session_end":  (datetime.datetime.combine((datetime.date.today()+datetime.timedelta(days=7)), (sessions[index][0]))+sessions[index][1]).strftime("%H:%M")
         })
     else:
         data.append({

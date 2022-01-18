@@ -1,5 +1,6 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from json import load
+from collections import deque
 import datetime
 
 class web:
@@ -10,20 +11,30 @@ class web:
     
     def format_day(self, date):
         
-        datetime_date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+        datetime_date = datetime.datetime.strptime(date, '%H:%M')
         worded_day = datetime_date.strftime('%A')
         numbered_day = datetime_date.strftime('%Y-%m-%d')
                 
         return f'{worded_day} {numbered_day}'
     
     def make(self):
-        
-        bookings = [
-                        load(open(f"old/dat/rooms_{i}.json"))['data'] for i in range(7)
-                    ]
-        
-        bookings.sort(key=lambda x: x[0]['session_start'])
-        
+
+        bookings = list()
+
+        for i in range(7):
+            try:
+                file = open(f"old/dat/rooms_{i}.json")
+                booking_data = load(file).get("data")
+                file.close()
+            except:
+                booking_data = None
+
+            bookings.append(booking_data)
+
+        bookings = deque(bookings)
+        bookings.rotate((datetime.datetime.today().weekday()+1))
+        bookings = list(bookings)
+
         room_bookings = list()
         
         for i, day in enumerate(bookings):
