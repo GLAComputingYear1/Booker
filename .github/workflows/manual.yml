@@ -40,7 +40,7 @@ jobs:
           git diff-index --quiet HEAD || git commit -m 'Saved room data'
           git push
 
-          rm -rfv !("dat")
+          rm -rfv '!("dat")'
           ls -la
           python web.py
           ls -la
