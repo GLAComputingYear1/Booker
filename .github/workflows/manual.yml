@@ -42,8 +42,8 @@ jobs:
 
           rm -rf .git
           mkdir old
-          mv -r ./* ./old
+          mv ./* ./old
           mkdir www
           ls -la
           python web.py
-          ls -la
+          ls -la ./www
