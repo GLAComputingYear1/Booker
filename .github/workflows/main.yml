@@ -31,6 +31,7 @@ jobs:
           export CRED_2_PASS=${{ secrets.CRED_2_PASS }}
           export CRED_3_GUID=${{ secrets.CRED_2_GUID }}
           export CRED_3_PASS=${{ secrets.CRED_2_PASS }}
+          export WEBHOOK=${{ secrets.WEBHOOK }}
           pip install discord
           pip install requests
           pip install jinja2

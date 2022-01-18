@@ -12,9 +12,7 @@ sessions = [
     (datetime.time(hour=12, minute=0), datetime.timedelta(hours=3)),
     (datetime.time(hour=15, minute=0), datetime.timedelta(hours=3)),
 ]
-webhook_url = "https://discord.com/api/webhooks/910583855545733120/GRPETupsGBYJyx4XOsYXebbZuIw062vOGZwWoKlY5S5bbYfDHI7jn0lkNMQ_Ib-uNf8q"
-
-
+webhook_url = os.environ.get("WEBHOOK")
 
 credential_pool = [
     (os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")),
