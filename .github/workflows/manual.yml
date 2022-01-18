@@ -42,7 +42,10 @@ jobs:
 
           rm -rf .git
           mkdir old
-          mv ./* ./old
+          shopt -s extglob dotglob
+          mv !(old) old
+          shopt -u dotglob
+
           mkdir www
           ls -la
           python web.py
