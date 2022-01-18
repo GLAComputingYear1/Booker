@@ -38,11 +38,16 @@ class web:
         room_bookings = list()
         
         for i, day in enumerate(bookings):
-            day_string = self.format_day(day[0]['session_start'])
-            room_bookings.append([day_string])
-            
-            for booking in day:
-                room_bookings[i].append(booking['room_name'])
+            if day is not None:
+                day_string = self.format_day(day[0]['session_start'])
+                room_bookings.append([day_string])
+
+                for booking in day:
+                    room_bookings[i].append(booking['room_name'])
+            else:
+                day_string = "Null"
+                room_bookings.append([day_string])
+                room_bookings[i] += ["Null", "Null", "Null"]
         
         with open("www/index.html", "w") as file:
             file.write(self.template.render(room_bookings=room_bookings))
