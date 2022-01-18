@@ -30,6 +30,7 @@ jobs:
           export CRED_2_PASS=${{ secrets.CRED_2_PASS }}
           export CRED_3_GUID=${{ secrets.CRED_2_GUID }}
           export CRED_3_PASS=${{ secrets.CRED_2_PASS }}
+          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           export WEBHOOK=${{ secrets.WEBHOOK }}
           pip install discord
           pip install requests
@@ -56,4 +57,5 @@ jobs:
           cd pages
           git add -A
           git diff-index --quiet HEAD || git commit -m 'Pushed new pages'
-          git push
+          git remote set-url origin https://vyrzdev:$GITHUB_TOKEN@github.com/GLAComputingYear1/Booker.git
+          git push origin pages
