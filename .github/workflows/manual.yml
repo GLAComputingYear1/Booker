@@ -48,5 +48,5 @@ jobs:
 
           mkdir www
           ls -la
-          python web.py
+          python old/web.py
           ls -la ./www
