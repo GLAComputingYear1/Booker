@@ -3,6 +3,7 @@ import itertools
 import src
 import json
 from discord import Embed, Webhook, RequestsWebhookAdapter
+from time import sleep
 import os.path
 import os
 
@@ -71,6 +72,10 @@ for room_id in bookable_rooms.keys():
         if room_id not in blacklist:
             final_priorities.append(room_id)
 
+#wait here
+while datetime.datetime.now().hour != 0:
+    sleep(0.5)
+            
 booked = list()
 round_robin = itertools.cycle(client_pool)
 last = None
