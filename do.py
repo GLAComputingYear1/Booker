@@ -145,6 +145,11 @@ with open(f"dat/rooms_{today_int}.json", "r+") as file:
                 value=booking.get('room_name'),
                 inline=False
             )
+        e.add_field(
+            name="Website 2",
+            value="https://glacomputingyear1.github.io/Booker/",
+            inline=False
+        )
     except json.decoder.JSONDecodeError:
         e = Embed(title='No bookings for today!')
 
