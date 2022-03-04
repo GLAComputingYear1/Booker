@@ -16,11 +16,16 @@ sessions = [
 ]
 webhook_url = os.environ.get("WEBHOOK")
 
-credential_pool = [
-    (os.environ.get("CRED_1_GUID"), os.environ.get("CRED_1_PASS")),
-    (os.environ.get("CRED_2_GUID"), os.environ.get("CRED_2_PASS")),
-    (os.environ.get("CRED_3_GUID"), os.environ.get("CRED_3_PASS"))
+cred_names = [
+    uname[:6] for uname in os.environ.keys()
+    if "CRED_" in uname
 ]
+
+credential_pool = [
+    (os.environ.get(f"{uname}_GUID"), os.environ.get(f"{uname}_PASS"))
+    for uname in cred_names
+]
+
 
 client_pool = list()
 count = 1
