@@ -2,7 +2,6 @@
 name: Book Rooms Manual
 on: workflow_dispatch
 
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflows contains a single job called "build"
@@ -36,22 +35,18 @@ jobs:
           pip install requests
           pip install jinja2
           python do.py
-
           git add -A
           git diff-index --quiet HEAD || git commit -m 'Saved room data'
           git push
-
           rm -rf .git
           mkdir old
           shopt -s extglob dotglob
           mv !(old) old
           shopt -u dotglob
-
           mkdir www
           ls -la
           python old/web.py
           ls -la ./www
-
           git clone -b pages https://github.com/GLAComputingYear1/Booker.git pages
           mv ./www/* ./pages/
           cd pages
