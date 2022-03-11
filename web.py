@@ -9,9 +9,12 @@ class web:
         self.template = env.get_template("index_template.html")
         self.make()
     
-    def format_day(self, date):
+    def format_day(self, date, datetime_obj=None):
+        if datetime_obj == None:
+            datetime_date = datetime.datetime.strptime(date, '%H:%M')
+        else:
+            datetime_Date = datetime_obj
         
-        datetime_date = datetime.datetime.strptime(date, '%H:%M')
         worded_day = datetime_date.strftime('%A')
         numbered_day = datetime_date.strftime('%Y-%m-%d')
                 
@@ -39,7 +42,12 @@ class web:
         
         for i, day in enumerate(bookings):
             if day is not None:
-                day_string = self.format_day(day[0]['session_start'])
+                #datetime of booking = current date          - number of today's day in the week                       + number of booking's day in the week
+                day_datetime_obj = datetime.datetime.today() - datetime.timedelta(datetime.datetime.today().weekday()) + (datetime.timedelta(i))
+                # if booking is for next week, add 7 days
+                day_datetime_obj += datetime.timedelta(7 if day_datetime_obj.day < datetime.datetime.today().day else 0)
+                #format it
+                day_string = self.format_day(None, day_datetime_obj)
                 room_bookings.append([day_string])
 
                 for booking in day:
