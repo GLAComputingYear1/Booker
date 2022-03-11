@@ -1,0 +1,3 @@
+Failed login for GUID: 2668930o; Pass stored in CRED_5_*
+Status Code: 500
+Raw Response: b'{"error":"campus.gla.ac.uk:389; nested exception is javax.naming.CommunicationException: campus.gla.ac.uk:389 [Root exception is java.net.ConnectException: Connection timed out: connect]"}'
