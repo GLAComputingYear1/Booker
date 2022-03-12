@@ -10,10 +10,9 @@ class web:
         self.make()
     
     def format_day(self, date, datetime_obj=None):
+        datetime_date = datetime_obj
         if datetime_obj == None:
             datetime_date = datetime.datetime.strptime(date, '%H:%M')
-        else:
-            datetime_Date = datetime_obj
         
         worded_day = datetime_date.strftime('%A')
         numbered_day = datetime_date.strftime('%Y-%m-%d')
