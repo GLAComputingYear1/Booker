@@ -1,4 +1,5 @@
 import datetime
+import pytz # database of timezones
 import itertools
 import src
 import json
@@ -78,7 +79,7 @@ for room_id in bookable_rooms.keys():
             final_priorities.append(room_id)
 
 #wait here
-while datetime.datetime.now().hour != 0:
+while datetime.datetime.now(pytz.timezone("Europe/London")).hour != 0:
     sleep(0.5)
             
 booked = list()
