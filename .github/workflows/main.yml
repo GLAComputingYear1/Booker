@@ -36,6 +36,7 @@ jobs:
           pip install discord
           pip install requests
           pip install jinja2
+          pip install pytz
           python do.py
           git add -A
           git diff-index --quiet HEAD || git commit -m 'Saved room data'
