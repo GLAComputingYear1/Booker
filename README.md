@@ -1,5 +1,5 @@
-# Booker
-A repo which leverages Github Actions and the private booking API for Glasgow University to automatically book rooms in study spaces.
+# Booker - RETIRED
+Used to be a repo which leverages Github Actions and the private booking API for Glasgow University to automatically book rooms in study spaces.
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
